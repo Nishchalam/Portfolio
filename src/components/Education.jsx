@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGraduationCap } from 'react-icons/fa';
 import iitmLogo from '../assets/iitm.png';
 import iiitkLogo from '../assets/iiitk.png';

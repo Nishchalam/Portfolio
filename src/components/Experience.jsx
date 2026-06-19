@@ -1,4 +1,3 @@
-import React from 'react';
 import iitmLogo from '../assets/iitm.png';
 import './Timeline.css';
 

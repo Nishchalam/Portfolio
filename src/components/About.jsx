@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaAddressCard } from 'react-icons/fa';
 import profileImage from '../assets/selfie.jpeg';
 import SpectrogramDoodle from './SpectrogramDoodle';

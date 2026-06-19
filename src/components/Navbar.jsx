@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { profileImage } from '../assets/profileImage';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {

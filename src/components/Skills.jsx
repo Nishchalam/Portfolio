@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaPython, FaLinux, FaGitAlt } from 'react-icons/fa';
 import { SiPytorch, SiTensorflow, SiKeras, SiScipy, SiNumpy, SiPandas, SiScikitlearn, SiJupyter, SiCplusplus, SiC } from 'react-icons/si';
 
