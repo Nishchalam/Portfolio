@@ -1,0 +1,86 @@
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.hero-bio {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+}
+
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(176, 0, 255, 0.05));
+}
+
+/* Simple CSS Audio Wave Animation */
+.audio-wave-placeholder {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: 100px;
+}
+
+.bar {
+  width: 12px;
+  background: linear-gradient(to top, var(--accent-cyan), var(--accent-purple));
+  border-radius: 6px;
+  animation: equalize 1.5s infinite ease-in-out alternate;
+}
+
+.bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+.bar:nth-child(2) { height: 60%; animation-delay: 0.2s; }
+.bar:nth-child(3) { height: 100%; animation-delay: 0.3s; }
+.bar:nth-child(4) { height: 50%; animation-delay: 0.4s; }
+.bar:nth-child(5) { height: 80%; animation-delay: 0.5s; }
+
+@keyframes equalize {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-actions, .social-links {
+    justify-content: center;
+  }
+}
