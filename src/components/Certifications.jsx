@@ -42,7 +42,7 @@ const Certifications = () => {
   return (
     <section id="certifications" className="section">
       <h2 className="section-title neon-border">Certifications</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
         {certs.map((cert, index) => (
           <div key={index} className="glass-panel" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.1rem', color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>{cert.title}</h3>

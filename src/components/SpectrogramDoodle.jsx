@@ -10,7 +10,7 @@ const SpectrogramDoodle = ({ side = 'left' }) => {
   const bars = INITIAL_BARS;
 
   return (
-    <div style={{ 
+    <div className="spectrogram-doodle" style={{ 
       position: 'absolute', 
       [side]: '0', 
       top: '50%', 

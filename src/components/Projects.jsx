@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section">
       <h2 className="section-title neon-border">Projects</h2>
-      <div className="projects-grid">
+      <div className="projects-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         <div className="glass-panel">
           <h3>k* Distribution: Latent Space Analysis</h3>
           <p>Applied k* neighborhood-density analysis on ResNet-50 latent embeddings for 12 ImageNet classes. Evaluated robustness under input transforms and PGD attacks.</p>

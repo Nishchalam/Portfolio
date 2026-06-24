@@ -9,6 +9,8 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Publications from './components/Publications';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import './App.css';
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
         <Certifications />
         <Contact />
       </main>
+      <Footer />
+      <BackToTop />
     </div>
   );
 }

@@ -60,7 +60,7 @@ const Education = () => {
                 <h3 style={{ color: 'var(--accent-cyan)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>Class 12th (Senior Secondary)</h3>
                 <h4 style={{ color: 'var(--text-secondary)', margin: '0 0 0.5rem 0' }}>DAV Sr Secondary School, Chennai</h4>
                 <p className="timeline-date neon-text" style={{ margin: '0 0 1.5rem 0' }}>2018 - 2020</p>
-                <p style={{ margin: 0 }}><strong>Score:</strong> 93.6%</p>
+                <p style={{ margin: 0 }}><strong>Score:</strong> 95.4%</p>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@ const Education = () => {
                 <h3 style={{ color: 'var(--accent-cyan)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>Class 10th (High School)</h3>
                 <h4 style={{ color: 'var(--text-secondary)', margin: '0 0 0.5rem 0' }}>Kendriya Vidyalaya HVF, Avadi</h4>
                 <p className="timeline-date neon-text" style={{ margin: '0 0 1.5rem 0' }}>2008 - 2018</p>
-                <p style={{ margin: 0 }}><strong>Score:</strong> 93.4%</p>
+                <p style={{ margin: 0 }}><strong>Score:</strong> 92.8%</p>
               </div>
             </div>
           </div>

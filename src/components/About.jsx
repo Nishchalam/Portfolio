@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaAddressCard } from 'react-icons/fa';
-import profileImage from '../assets/selfie.jpeg';
+import profileImage from '../assets/profile.jpeg';
 import SpectrogramDoodle from './SpectrogramDoodle';
 import './About.css';
 
@@ -21,7 +21,7 @@ const About = () => {
       )}
 
       {/* Vertical Social Bar */}
-      <div style={{
+      <div className="social-bar" style={{
         position: 'fixed',
         right: '20px',
         top: '50%',
@@ -62,7 +62,7 @@ const About = () => {
       <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 140px', zIndex: 2, textAlign: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
           <div className="photo-container glass-panel" onClick={() => setIsModalOpen(true)} style={{ padding: '0.5rem', borderRadius: '50%', overflow: 'hidden', width: '320px', height: '320px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0, cursor: 'pointer', transition: 'transform 0.3s ease', position: 'relative' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-            <img src={profileImage} alt="Nishchala Mukku" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+            <img src={profileImage} alt="Nishchala Mukku" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', transform: 'scale(1.4)', objectPosition: 'top center' }} />
           </div>
           <div>
             <h1 className="hero-title" style={{ fontSize: '3.5rem', margin: '0 0 1rem 0' }}>
@@ -73,7 +73,7 @@ const About = () => {
         </div>
         
         <p className="hero-bio" style={{ fontSize: '1rem', lineHeight: '1.8', maxWidth: '800px', textAlign: 'center' }}>
-          Researcher in Speech Signal Processing and Machine Learning, working under C. S. Ramalingam. My research focuses on developing signal-processing-informed machine learning methods for robust pitch estimation from speech and singing voice recordings.
+          Researcher in Speech Signal Processing and Machine Learning, working under <a href="https://www.ee.iitm.ac.in/~csr/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-cyan)' }}>Professor Dr. C. S. Ramalingam</a>. My research focuses on developing signal-processing-informed machine learning methods for robust pitch estimation from speech and singing voice recordings.
           <br/><br/>
           I investigate how classical speech processing techniques can be integrated with modern deep learning architectures to improve accuracy, efficiency, and interpretability in fundamental frequency (F0) estimation.
         </p>

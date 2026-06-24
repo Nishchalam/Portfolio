@@ -3,17 +3,26 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      setLastScrollY(currentScrollY);
+      setScrolled(currentScrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
-    <nav className={`glass-panel navbar ${scrolled ? 'scrolled' : ''}`} style={{ display: 'flex', alignItems: 'center', padding: scrolled ? '0.5rem 2rem' : '1rem 2rem', transition: 'all 0.3s ease' }}>
+    <nav className={`glass-panel navbar ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''}`} style={{ display: 'flex', alignItems: 'center', padding: scrolled ? '0.5rem 2rem' : '1rem 2rem', transition: 'all 0.3s ease' }}>
       <ul className="nav-links" style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
