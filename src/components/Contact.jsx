@@ -49,11 +49,11 @@ const Contact = () => {
           {/* Right Side: Form */}
           <div className="contact-form-container">
             <h3 style={{ margin: '0 0 1.5rem 0', color: 'var(--text-primary)', fontSize: '1.2rem' }}>Send a Message</h3>
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <input type="hidden" name="form-name" value="contact" />
-              <div hidden>
-                <input name="bot-field" />
-              </div>
+            <form action="https://formsubmit.co/mnishchala@gmail.com" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {/* FormSubmit Configuration */}
+              <input type="hidden" name="_subject" value="New message from Portfolio!" />
+              <input type="hidden" name="_captcha" value="false" />
+              
               <input type="text" name="name" placeholder="Your Name" required className="form-input" />
               <input type="email" name="email" placeholder="Your Email" required className="form-input" />
               <textarea name="message" placeholder="Your Message" rows="5" required className="form-input"></textarea>
