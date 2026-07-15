@@ -12,14 +12,14 @@ const SpectrogramDoodle = ({ side = 'left' }) => {
   return (
     <div className="spectrogram-doodle" style={{ 
       position: 'absolute', 
-      [side]: '0', 
+      [side]: '-130px', 
       top: '50%', 
       transform: 'translateY(-50%)',
       display: 'flex', 
       flexDirection: 'column',
       alignItems: isRight ? 'flex-end' : 'flex-start', 
       gap: '6px', 
-      width: '100px', 
+      width: '160px', 
       opacity: 0.6, 
       zIndex: 1,
       overflow: 'hidden' 

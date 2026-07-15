@@ -2,6 +2,18 @@
 const Certifications = () => {
   const certs = [
     {
+      title: "AI Fundamentals: Foundations for Understanding AI",
+      issuer: "IBM SkillsBuild",
+      date: "Jul 2026",
+      credentialUrl: "https://www.credly.com/go/sqErpmnH"
+    },
+    {
+      title: "Build an AI Agent",
+      issuer: "IBM SkillsBuild",
+      date: "Jul 2026",
+      credentialUrl: "https://www.credly.com/go/NmN8kY2P"
+    },
+    {
       title: "Unsupervised Learning",
       issuer: "Coursera",
       date: "Apr 2026",
@@ -44,11 +56,34 @@ const Certifications = () => {
       <h2 className="section-title neon-border">Certifications</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
         {certs.map((cert, index) => (
-          <div key={index} className="glass-panel" style={{ padding: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.1rem', color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>{cert.title}</h3>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', fontWeight: 'bold' }}>{cert.issuer}</p>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Issued: {cert.date}</p>
-            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>Credential ID: {cert.id}</p>
+          <div key={index} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div>
+              <h3 style={{ fontSize: '1.1rem', color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>{cert.title}</h3>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', fontWeight: 'bold' }}>{cert.issuer}</p>
+              {cert.date && <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Issued: {cert.date}</p>}
+              {cert.id && <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>Credential ID: {cert.id}</p>}
+            </div>
+            {cert.credentialUrl && (
+              <a 
+                href={cert.credentialUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ 
+                  color: 'var(--accent-cyan)', 
+                  fontSize: '0.85rem', 
+                  textDecoration: 'none', 
+                  marginTop: '0.75rem', 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  gap: '0.25rem',
+                  fontWeight: 'bold'
+                }} 
+                onMouseEnter={e => e.target.style.textDecoration = 'underline'} 
+                onMouseLeave={e => e.target.style.textDecoration = 'none'}
+              >
+                View Credential ↗
+              </a>
+            )}
           </div>
         ))}
       </div>

@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "export PATH=/tmp/node-v22.13.0-linux-x64/bin:$PATH && npm run build",
-    "deploy": "export PATH=/tmp/node-v22.13.0-linux-x64/bin:$PATH && gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.2.6",

@@ -34,13 +34,14 @@ const Experience = () => {
                 <h3 style={{ color: 'var(--accent-cyan)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>Teaching Assistant</h3>
                 <h4 style={{ color: 'var(--text-secondary)', margin: '0 0 0.5rem 0' }}>Indian Institute of Technology Madras</h4>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', margin: '0 0 1.5rem 0' }}>
-                  <p className="timeline-date neon-text" style={{ margin: 0 }}>Jul 2025 - May 2026 · 11 mos</p>
+                  <p className="timeline-date neon-text" style={{ margin: 0 }}>Jul 2025 - Nov 2026</p>
                   <p style={{ color: 'var(--text-secondary)', fontStyle: 'italic', margin: 0 }}>Part-time</p>
                 </div>
 
                 <ul style={{ listStyleType: 'none', marginLeft: '0', padding: 0 }}>
-                  <li style={{ marginBottom: '0.5rem' }}>1. Course EE2004(Jan-May 2026):Digital Signal Processing under Prof C.S.Ramalingam. Also, was the head TA.</li>
-                  <li>2. Course EE5110(Jul-Nov 2025): Probability Foundations for Electrical Engineers under Prof. Venkatesh Ramaiyan.</li>
+                  <li style={{ marginBottom: '0.5rem' }}>1. Course EE1101(July-Nov 2026): Signals and Systems under Prof. C.S. Ramalingam.</li>
+                  <li style={{ marginBottom: '0.5rem' }}>2. Course EE2004(Jan-May 2026): Digital Signal Processing under Prof C.S. Ramalingam. Also, was the head TA.</li>
+                  <li>3. Course EE5110(Jul-Nov 2025): Probability Foundations for Electrical Engineers under Prof. Venkatesh Ramaiyan.</li>
                 </ul>
               </div>
             </div>

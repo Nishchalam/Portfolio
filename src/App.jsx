@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ThemeSwitcher from './components/ThemeSwitcher';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import CurrentResearch from './components/CurrentResearch';
@@ -32,6 +33,7 @@ function App() {
       {/* Scroll Progress Line */}
       <div className="scroll-line" style={{ transform: `scaleY(${scrollProgress})` }}></div>
       
+      <ThemeSwitcher />
       <Navbar />
       <main className="container">
         <About />

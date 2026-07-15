@@ -59,21 +59,28 @@ const About = () => {
       {/* Quirky Audio/Spectrogram Doodle vertically on right */}
       <SpectrogramDoodle side="right" />
 
-      <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 140px', zIndex: 2, textAlign: 'center' }}>
+      <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 40px', zIndex: 2, textAlign: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
           <div className="photo-container glass-panel" onClick={() => setIsModalOpen(true)} style={{ padding: '0.5rem', borderRadius: '50%', overflow: 'hidden', width: '320px', height: '320px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0, cursor: 'pointer', transition: 'transform 0.3s ease', position: 'relative' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
             <img src={profileImage} alt="Nishchala Mukku" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', transform: 'scale(1.4)', objectPosition: 'top center' }} />
           </div>
           <div>
-            <h1 className="hero-title" style={{ fontSize: '3.5rem', margin: '0 0 1rem 0' }}>
+            <h1 className="hero-title" style={{ fontSize: '3.5rem', margin: '0 0 0.5rem 0' }}>
               Hi, I'm <span className="neon-text neon-border">Nishchala Mukku</span>
             </h1>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', margin: '0 0 1rem 0', flexWrap: 'wrap' }}>
+              {["Speech & Audio AI", "AI", "Deep Learning", "Machine Learning", "DSP"].map((interest, idx) => (
+                <span key={idx} style={{ fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  {interest} {idx < 4 && <span style={{ color: 'var(--text-secondary)', marginLeft: '0.5rem', marginRight: '0.25rem' }}>|</span>}
+                </span>
+              ))}
+            </div>
             <h2 className="hero-subtitle" style={{ margin: 0 }}>M.S. by Research Scholar, Electrical Engineering<br/><span style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Indian Institute of Technology Madras</span></h2>
           </div>
         </div>
         
-        <p className="hero-bio" style={{ fontSize: '1rem', lineHeight: '1.8', maxWidth: '800px', textAlign: 'center' }}>
-          Researcher in Speech Signal Processing and Machine Learning, working under <a href="https://www.ee.iitm.ac.in/~csr/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-cyan)' }}>Professor Dr. C. S. Ramalingam</a>. My research focuses on developing signal-processing-informed machine learning methods for robust pitch estimation from speech and singing voice recordings.
+        <p className="hero-bio" style={{ fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '1000px', textAlign: 'justify' }}>
+          Researcher in Speech Signal Processing and Machine Learning, working under <a href="https://www.ee.iitm.ac.in/~csr/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-cyan)', whiteSpace: 'nowrap' }}>Professor Dr. C. S. Ramalingam</a>. My research focuses on developing signal-processing-informed machine learning methods for robust pitch estimation from speech and singing voice recordings.
           <br/><br/>
           I investigate how classical speech processing techniques can be integrated with modern deep learning architectures to improve accuracy, efficiency, and interpretability in fundamental frequency (F0) estimation.
         </p>
