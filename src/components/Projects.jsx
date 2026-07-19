@@ -180,15 +180,14 @@ const ProjectCard = ({ project }) => {
 const Projects = () => {
   const projectsData = [
     {
-      title: "Deforestation Detection from Satellite Imagery",
+      title: "Amazon Deforestation Detection & Land-Cover Mapping",
       category: "Computer Vision | Remote Sensing",
-      description: "Developing a computer vision pipeline for detecting deforestation from satellite imagery using patch-based classification and remote sensing preprocessing.",
+      description: "Built a PyTorch-based end-to-end computer vision pipeline for satellite image classification, land-cover mapping,and deforestation detection using EuroSAT and Sentinel-2 imagery.Evaluated five CNN architectures, achieving 96.04% test accuracy with ResNet-18 while comparing model size,inference efficiency, and deployment suitability.Designed a reusable inference pipeline for patch-based prediction, land-cover reconstruction, temporal change detection, and quantitative validation using Hansen forest-loss reference data.",
       highlights: [
         "Satellite image preprocessing",
         "Patch extraction",
         "Forest vs non-forest classification",
-        "Remote sensing workflow",
-        "Research-oriented codebase"
+        "Deforestation statistics"
       ],
       techStack: ["Python", "PyTorch", "OpenCV", "NumPy", "Matplotlib"],
       github: "https://github.com/Nishchalam/Deforestation-detection"
