@@ -30,11 +30,12 @@ const About = () => {
         flexDirection: 'column',
         gap: '1.5rem',
         zIndex: 1000,
-        backgroundColor: 'rgba(255,255,255,0.05)',
+        backgroundColor: 'var(--glass-bg)',
         padding: '1rem 0.5rem',
         borderRadius: '30px',
         backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255,255,255,0.1)'
+        border: '1px solid var(--glass-border)',
+        boxShadow: 'var(--glass-shadow)'
       }}>
         <a href="mailto:mnishchala@gmail.com" title="Email" style={{ color: 'var(--text-primary)', fontSize: '1.8rem', transition: 'color 0.2s', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }} onMouseEnter={e => e.target.style.color = 'var(--accent-cyan)'} onMouseLeave={e => e.target.style.color = 'var(--text-primary)'}>
           <FaEnvelope />

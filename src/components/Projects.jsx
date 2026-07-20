@@ -133,13 +133,13 @@ const ProjectCard = ({ project }) => {
             <span 
               key={index} 
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                backgroundColor: 'rgba(128, 128, 128, 0.12)',
                 border: '1px solid var(--glass-border)',
                 padding: '0.25rem 0.6rem',
                 borderRadius: '20px',
                 fontSize: '0.8rem',
                 color: 'var(--text-secondary)',
-                fontWeight: 500
+                fontWeight: 600
               }}
             >
               {tech}

@@ -261,8 +261,8 @@ a:hover {
   100% { transform: translateY(0); }
 }
 
-/* Theme Styles & Variable Overrides */
 body.theme-space {
+  color-scheme: dark;
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --text-primary: #f0f0f5;
@@ -279,6 +279,7 @@ body.theme-space {
 }
 
 body.theme-cyberpunk {
+  color-scheme: dark;
   --bg-primary: #0e050f;
   --bg-secondary: #18091a;
   --text-primary: #ffeefc;
@@ -295,6 +296,7 @@ body.theme-cyberpunk {
 }
 
 body.theme-emerald {
+  color-scheme: dark;
   --bg-primary: #050f0e;
   --bg-secondary: #0a1c1a;
   --text-primary: #e6fcf9;
@@ -311,19 +313,20 @@ body.theme-emerald {
 }
 
 body.theme-light {
-  --bg-primary: #f2f4f8;
+  color-scheme: light;
+  --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
-  --text-primary: #1a1e24;
-  --text-secondary: #5e6b77;
-  --accent-cyan: #007acc;
-  --accent-purple: #6c00ff;
-  --accent-blue: #0050d0;
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --accent-cyan: #0284c7;
+  --accent-purple: #7c3aed;
+  --accent-blue: #1d4ed8;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.12);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(0, 122, 204, 0.06), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(108, 0, 255, 0.06), transparent 25%);
+    radial-gradient(circle at 15% 50%, rgba(2, 132, 199, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.08), transparent 30%);
 }
 
 body.theme-yellow {

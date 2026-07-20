@@ -15,15 +15,31 @@ const Certifications = () => {
     },
     {
       title: "Unsupervised Learning",
-      issuer: "Coursera",
+      issuer: "DeepLearning.AI",
       date: "Apr 2026",
-      id: "I6DOHO6T98CW"
+      id: "I6DOHO6T98CW",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/I6DOHO6T98CW"
     },
     {
       title: "Machine Learning",
       issuer: "DeepLearning.AI",
       date: "Apr 2026",
-      id: "Q4UGR51LDA9X"
+      id: "Q4UGR51LDA9X",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/Q4UGR51LDA9X"
+    },
+    {
+      title: "Supervised Machine Learning: Regression and Classification",
+      issuer: "DeepLearning.AI",
+      date: "Feb 2026",
+      id: "6QG8SJI7P24D",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/6QG8SJI7P24D"
+    },
+    {
+      title: "Advanced Learning Algorithms",
+      issuer: "DeepLearning.AI",
+      date: "Feb 2026",
+      id: "O25ZXXL33S21",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/O25ZXXL33S21"
     },
     {
       title: "Introduction to Robotics",
@@ -41,13 +57,15 @@ const Certifications = () => {
       title: "Mathematics for Machine Learning Specialization",
       issuer: "Imperial College London by Coursera",
       date: "Feb 2023",
-      id: "JRWYYFXVV49U"
+      id: "JRWYYFXVV49U",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/JRWYYFXVV49U"
     },
     {
       title: "Accelerated Computer Science Fundamentals Specialization",
       issuer: "University of Illinois Urbana-Champaign by Coursera",
       date: "Feb 2023",
-      id: "ECRZKWK3F84W"
+      id: "ECRZKWK3F84W",
+      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ECRZKWK3F84W"
     }
   ];
 

@@ -25,7 +25,7 @@ const Education = () => {
                 <p className="timeline-date neon-text" style={{ margin: '0 0 1.5rem 0' }}>2024 - Present</p>
                 
                 <p style={{ marginBottom: '1rem' }}><strong>Advisor:</strong> C. S. Ramalingam</p>
-                <p style={{ marginBottom: '1rem' }}><strong>Coursework:</strong> Speech Signal Processing, Estimation Theory, Detection Theory, Advanced Topics in Signal Processing</p>
+                <p style={{ marginBottom: '1rem' }}><strong>Coursework:</strong> Probability Theory (EE5110), Applied Linear Algebra (EE5120), Advanced Topics in Signal Processing (EE6130), Detection Theory (EE5112), Estimation Theory (EE5111), Speech Signal Processing (EE5170), Foundations of Machine Learning (DA5400)</p>
                 <p style={{ margin: 0 }}><strong>CGPA:</strong> 8.44</p>
               </div>
             </div>
