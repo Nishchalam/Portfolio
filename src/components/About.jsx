@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaAddressCard } from 'react-icons/fa';
-import profileImage from '../assets/profile.jpeg';
+import profileImage from '../assets/profile.png';
 import SpectrogramDoodle from './SpectrogramDoodle';
 import './About.css';
 
@@ -63,7 +63,7 @@ const About = () => {
       <div className="hero-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 40px', zIndex: 2, textAlign: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
           <div className="photo-container glass-panel" onClick={() => setIsModalOpen(true)} style={{ padding: '0.5rem', borderRadius: '50%', overflow: 'hidden', width: '320px', height: '320px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0, cursor: 'pointer', transition: 'transform 0.3s ease', position: 'relative' }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-            <img src={profileImage} alt="Nishchala Mukku" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', transform: 'scale(1.4)', objectPosition: 'top center' }} />
+            <img src={profileImage} alt="Nishchala Mukku" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%', objectPosition: 'center' }} />
           </div>
           <div>
             <h1 className="hero-title" style={{ fontSize: '3.5rem', margin: '0 0 0.5rem 0' }}>
