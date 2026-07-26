@@ -17,7 +17,7 @@
 
 ### 💻 Tech Stack
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=python,c,cpp,pytorch,tensorflow,keras,scikitlearn,numpy,pandas,linux,git&theme=light" alt="Tech Stack" />
+  <img src="https://skillicons.dev/icons?i=python,c,cpp,pytorch,tensorflow,scikitlearn,linux,git&theme=light" alt="Tech Stack" />
 </div>
 
 <br>
