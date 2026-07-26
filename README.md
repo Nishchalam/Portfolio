@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Waving%20Hand.png" alt="Waving Hand" width="50" />
+  <img src="https://iam-weijie.github.io/wave/hand-emoji.svg" alt="Animated Emoji" width="50" height="50">
   <h1>Hi there, I'm Nishchala Mukku</h1>
   <p><em>M.S. by Research Scholar @ IIT Madras | Speech Signal Processing & Machine Learning</em></p>
 </div>
@@ -38,9 +38,3 @@
   </a>
 </div>
 
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" alt="Sparkles" width="25" />
-  <i>Always building, always learning.</i>
-</div>
