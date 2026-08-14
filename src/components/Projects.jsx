@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import iiitkLogo from '../assets/iiitk.png';
 
 const ProjectCard = ({ project }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -241,11 +242,50 @@ const Projects = () => {
       github: "https://github.com/Nishchalam/k-distribution"
     },
     {
+      title: "Speech Processing Projects",
+      category: "Speech Processing | Deep Learning",
+      description: "Developed end-to-end speech processing pipelines for key audio tasks as part of the EE6130 course at IIT Madras.",
+      highlights: [
+        "Language Identification: Developed a multilingual speech-language classifier using pretrained Wav2Vec2/HuBERT representations and CNN-based classification",
+        "Speaker Diarization: Built a diarization pipeline combining Whisper-based speech segmentation, ECAPA-TDNN speaker embeddings, and agglomerative clustering",
+        "Automatic Speech Recognition (ASR): Fine-tuned Whisper-Tiny for Assamese speech recognition using Mozilla Common Voice and evaluated with Word Error Rate (WER)",
+        "Text-to-Speech (TTS): Fine-tuned SpeechT5 for German speech synthesis using speaker embeddings and a HiFi-GAN vocoder"
+      ],
+      techStack: ["Python", "PyTorch", "Hugging Face", "Transformers", "Librosa", "Wav2Vec2", "Whisper", "SpeechT5"],
+      github: "https://github.com/Nishchalam/Speech-processing-projects"
+    },
+    {
       title: "DSP Image Processing Suite",
       category: "Signal Processing | Image Processing",
       description: "Built a unified 2D signal processing library covering frequency-domain transforms (2D-DFT, DCT, Haar, DWT), edge detection, and histogram equalisation.",
       techStack: ["Python", "Signal Processing", "Image Processing", "Transforms"],
       github: "https://github.com/Nishchalam/DSP-based-Image-processing-techniques"
+    },
+    {
+      title: "Deep learning approach to Inverse scattering problem",
+      category: "Deep Learning | Computational Physics",
+      dateRange: "Aug 2023 – Feb 2024",
+      association: "Indian Institute of Technology Design & Manufacturing, Kurnool",
+      associationLogo: iiitkLogo,
+      description: "Developed a deep learning model to solve the inverse scattering problem, precisely focusing on the reconstruction of medium to high contrast images with good resolution for medical imaging, acoustic scattering, security, and defense applications.",
+      highlights: [
+        "Designed and implemented a FPNet-based neural network model to resolve scattering problems",
+        "Enhanced spatial resolution and contrast reconstruction capabilities of scatterer mediums"
+      ],
+      techStack: ["Python", "PyTorch", "Deep Learning", "Inverse Scattering", "Image Reconstruction", "Data Analysis", "Problem Solving"]
+    },
+    {
+      title: "Design of a Ultra-Wide Microwave Band Pass Filter with Sharp Rejection",
+      category: "Electromagnetics | RF Engineering",
+      dateRange: "Feb 2024 – May 2024",
+      association: "Indian Institute of Technology Design & Manufacturing, Kurnool",
+      associationLogo: iiitkLogo,
+      description: "Designed and simulated an ultra-wide microwave band-pass filter using transmission lines and coupled lines to achieve high selectivity and sharp rejection characteristics for high-frequency communication.",
+      highlights: [
+        "Developed coupled-line band-pass filter models using transmission lines and coupled lines",
+        "Conducted extensive EM simulation and validation using Ansys Electronics Desktop (HFSS) and Saturn PCB Design tools"
+      ],
+      techStack: ["RF & Microwave Design", "Transmission Lines", "Ansys Electronics Desktop", "Saturn PCB", "Electromagnetics"]
     },
     {
       title: "Parkinson's Disease prediction (ML) and app",
@@ -256,12 +296,6 @@ const Projects = () => {
       description: "Having known about this disease my whole life, this project utilises SVM and Decision trees to predict and has an accuracy of 84% on test data. Along with source code, I have developed a simple application with a HTML based frontend.",
       techStack: ["Machine Learning", "Python", "SVM", "Decision Trees", "HTML"],
       github: "https://github.com/Nishchalam/parkinson_disease_project"
-    },
-    {
-      title: "Design of Microwave Band Pass Filters",
-      category: "Electromagnetics | RF Engineering",
-      description: "Designed and simulated microwave filters for high-frequency communication.",
-      techStack: ["RF", "Microwave", "Electromagnetics", "High-Frequency Design"]
     }
   ];
 
