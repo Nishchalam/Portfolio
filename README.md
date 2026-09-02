@@ -27,7 +27,7 @@
   <a href="https://linkedin.com/in/nishchala-mukku">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://nishchalamukku.netlify.app/">
+  <a href="https://nishchalam.github.io/Portfolio/">
     <img src="https://img.shields.io/badge/Website-252525?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website" />
   </a>
   <a href="mailto:mnishchala@gmail.com">

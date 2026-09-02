@@ -1,53 +1,36 @@
-import { useState, useEffect } from 'react';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import Navbar from './components/Navbar';
+import SpectrogramField from './components/SpectrogramField';
 import About from './components/About';
-import CurrentResearch from './components/CurrentResearch';
-import Experience from './components/Experience';
+import Research from './components/Research';
 import Education from './components/Education';
-import Certifications from './components/Certifications';
-import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Publications from './components/Publications';
+import Skills from './components/Skills';
+import Certifications from './components/Certifications';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import './App.css';
 
 function App() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scroll = `${totalScroll / windowHeight}`;
-      setScrollProgress(scroll);
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="app-container">
-      {/* Scroll Progress Line */}
-      <div className="scroll-line" style={{ transform: `scaleY(${scrollProgress})` }}></div>
-      
-      <ThemeSwitcher />
-      <Navbar />
-      <main className="container">
-        <About />
-        <CurrentResearch />
-        <Experience />
-        <Education />
-        <Publications />
-        <Projects />
-        <Skills />
-        <Certifications />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
+      <SpectrogramField />
+      <div className="app-content">
+        <ThemeSwitcher />
+        <Navbar />
+        <main className="container">
+          <About />
+          <Research />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Certifications />
+          <Contact />
+        </main>
+        <BackToTop />
+      </div>
     </div>
   );
 }

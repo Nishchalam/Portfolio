@@ -4,42 +4,95 @@
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 1100px;
+  max-width: 1080px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   z-index: 1000;
-  border-radius: 50px; /* pill shape */
+  border-radius: 14px;
 }
 
-.navbar:hover {
-  transform: translateX(-50%) translateY(-2px);
-}
-
-.navbar.hidden {
-  transform: translateX(-50%) translateY(-150%);
-}
-
-.nav-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.75rem;
   list-style: none;
+  align-items: center;
 }
 
 .nav-links a {
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-resume {
+  color: var(--accent) !important;
+  border: 1px solid var(--accent);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 600 !important;
+}
+
+.nav-resume:hover {
+  background: var(--accent-soft);
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    justify-content: flex-end;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
   .nav-links {
     display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.75rem;
+    box-shadow: var(--glass-shadow);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .nav-resume {
+    display: inline-block;
+    margin-top: 0.25rem;
   }
 }

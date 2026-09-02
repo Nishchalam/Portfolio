@@ -1,105 +1,38 @@
+const certs = [
+  { title: "Deep Learning", issuer: "NPTEL IIT KGP", date: "Apr 2023", credentialUrl: "https://drive.google.com/file/d/1Pz2Ju1zy2ZzYG-qYV4xnqIyK43GYuFXT/view?usp=drive_link" },
+  { title: "Machine Learning", issuer: "DeepLearning.AI", date: "Apr 2026", credentialUrl: "https://www.coursera.org/account/accomplishments/verify/Q4UGR51LDA9X" },
+  { title: "Mathematics for Machine Learning Specialization", issuer: "Imperial College London (Coursera)", date: "Feb 2023", credentialUrl: "https://www.coursera.org/account/accomplishments/verify/JRWYYFXVV49U" },
+  { title: "Accelerated Computer Science Fundamentals Specialization", issuer: "UIUC (Coursera)", date: "Feb 2023", credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ECRZKWK3F84W" },
+  { title: "Introduction to Robotics", issuer: "NPTEL", date: "Aug 2023", credentialUrl: "https://drive.google.com/file/d/111hwWCQpxvJGvnaT-fEW4vtHJ6x3NuTb/view?usp=drive_link" },
+  { title: "AI Fundamentals: Foundations for Understanding AI", issuer: "IBM SkillsBuild", date: "Jul 2026", credentialUrl: "https://www.credly.com/go/sqErpmnH" },
+  { title: "Build an AI Agent", issuer: "IBM SkillsBuild", date: "Jul 2026", credentialUrl: "https://www.credly.com/go/NmN8kY2P" },
+];
 
 const Certifications = () => {
-  const certs = [
-    {
-      title: "AI Fundamentals: Foundations for Understanding AI",
-      issuer: "IBM SkillsBuild",
-      date: "Jul 2026",
-      credentialUrl: "https://www.credly.com/go/sqErpmnH"
-    },
-    {
-      title: "Build an AI Agent",
-      issuer: "IBM SkillsBuild",
-      date: "Jul 2026",
-      credentialUrl: "https://www.credly.com/go/NmN8kY2P"
-    },
-    {
-      title: "Unsupervised Learning",
-      issuer: "DeepLearning.AI",
-      date: "Apr 2026",
-      id: "I6DOHO6T98CW",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/I6DOHO6T98CW"
-    },
-    {
-      title: "Machine Learning",
-      issuer: "DeepLearning.AI",
-      date: "Apr 2026",
-      id: "Q4UGR51LDA9X",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/Q4UGR51LDA9X"
-    },
-    {
-      title: "Supervised Machine Learning: Regression and Classification",
-      issuer: "DeepLearning.AI",
-      date: "Feb 2026",
-      id: "6QG8SJI7P24D",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/6QG8SJI7P24D"
-    },
-    {
-      title: "Advanced Learning Algorithms",
-      issuer: "DeepLearning.AI",
-      date: "Feb 2026",
-      id: "O25ZXXL33S21",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/O25ZXXL33S21"
-    },
-    {
-      title: "Introduction to Robotics",
-      issuer: "NPTEL",
-      date: "Aug 2023",
-      id: "NPTEL23DE12S740400403"
-    },
-    {
-      title: "Deep Learning",
-      issuer: "NPTEL IIT KGP",
-      date: "Apr 2023",
-      id: "NPTEL23CS56S63351007"
-    },
-    {
-      title: "Mathematics for Machine Learning Specialization",
-      issuer: "Imperial College London by Coursera",
-      date: "Feb 2023",
-      id: "JRWYYFXVV49U",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/JRWYYFXVV49U"
-    },
-    {
-      title: "Accelerated Computer Science Fundamentals Specialization",
-      issuer: "University of Illinois Urbana-Champaign by Coursera",
-      date: "Feb 2023",
-      id: "ECRZKWK3F84W",
-      credentialUrl: "https://www.coursera.org/account/accomplishments/verify/ECRZKWK3F84W"
-    }
-  ];
-
   return (
     <section id="certifications" className="section">
-      <h2 className="section-title neon-border">Certifications</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+      <h2 className="section-title" style={{ fontSize: '1.4rem' }}>Additional Coursework & Certifications</h2>
+      <div className="glass-panel" style={{ padding: '0.5rem 1.5rem' }}>
         {certs.map((cert, index) => (
-          <div key={index} className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div
+            key={cert.title}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '1rem',
+              flexWrap: 'wrap',
+              padding: '0.85rem 0',
+              borderTop: index === 0 ? 'none' : '1px solid var(--glass-border)',
+            }}
+          >
             <div>
-              <h3 style={{ fontSize: '1.1rem', color: 'var(--accent-cyan)', marginBottom: '0.5rem' }}>{cert.title}</h3>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '0.25rem', fontWeight: 'bold' }}>{cert.issuer}</p>
-              {cert.date && <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: '0.25rem' }}>Issued: {cert.date}</p>}
-              {cert.id && <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>Credential ID: {cert.id}</p>}
+              <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)', fontWeight: 500 }}>{cert.title}</span>
+              <span style={{ fontSize: '0.85rem' }}> — {cert.issuer}, {cert.date}</span>
             </div>
             {cert.credentialUrl && (
-              <a 
-                href={cert.credentialUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{ 
-                  color: 'var(--accent-cyan)', 
-                  fontSize: '0.85rem', 
-                  textDecoration: 'none', 
-                  marginTop: '0.75rem', 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '0.25rem',
-                  fontWeight: 'bold'
-                }} 
-                onMouseEnter={e => e.target.style.textDecoration = 'underline'} 
-                onMouseLeave={e => e.target.style.textDecoration = 'none'}
-              >
-                View Credential ↗
+              <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--accent)', flexShrink: 0 }}>
+                Verify ↗
               </a>
             )}
           </div>

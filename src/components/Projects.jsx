@@ -1,311 +1,161 @@
-import { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import iiitkLogo from '../assets/iiitk.png';
+import { FaGithub, FaGoogleDrive } from 'react-icons/fa';
 
-const ProjectCard = ({ project }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const LinkButton = ({ link }) => {
+  const Icon = link.type === 'drive' ? FaGoogleDrive : FaGithub;
   return (
-    <div 
-      className="glass-panel" 
-      style={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        gap: '1rem',
-        textAlign: 'left'
-      }}
-    >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
-        <div style={{ flex: '1 1 300px' }}>
-          {project.category && (
-            <span style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: 'bold' }}>
-              {project.category}
-            </span>
-          )}
-          <h3 style={{ fontSize: '1.4rem', margin: '0.25rem 0 0.5rem 0', color: 'var(--text-primary)' }}>
-            {project.title}
-          </h3>
-        </div>
-        {project.dateRange && (
-          <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontStyle: 'italic' }}>
-            {project.dateRange}
-          </span>
-        )}
-      </div>
-
-      {project.association && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-          {project.associationLogo && (
-            <img 
-              src={project.associationLogo} 
-              alt="Logo" 
-              style={{ width: '24px', height: '24px', borderRadius: '4px', backgroundColor: '#fff', padding: '1px' }} 
-              onError={(e) => { e.target.style.display = 'none'; }} 
-            />
-          )}
-          <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            Associated with {project.association}
-          </span>
-        </div>
-      )}
-
-      <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.6' }}>
-        {project.description}
-      </p>
-
-      {/* Expandable details section */}
-      {(project.highlights || project.features || project.evaluation) && (
-        <div style={{ alignSelf: 'flex-start' }}>
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--accent-cyan)',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: 0,
-              fontFamily: 'inherit',
-              fontWeight: 600,
-              fontSize: '0.95rem',
-              marginTop: '0.25rem'
-            }}
-          >
-            {isExpanded ? (
-              <>Hide Details <FaChevronUp size={12} /></>
-            ) : (
-              <>Show Details <FaChevronDown size={12} /></>
-            )}
-          </button>
-
-          {isExpanded && (
-            <div style={{
-              marginTop: '1rem',
-              paddingTop: '1rem',
-              borderTop: '1px solid var(--glass-border)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem',
-              width: '100%'
-            }}>
-              {project.highlights && (
-                <div>
-                  <h4 style={{ fontSize: '0.95rem', color: 'var(--text-primary)', marginBottom: '0.4rem', fontWeight: 600 }}>Highlights:</h4>
-                  <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.95rem' }}>
-                    {project.highlights.map((highlight, index) => (
-                      <li key={index}>{highlight}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {project.features && (
-                <div>
-                  <h4 style={{ fontSize: '0.95rem', color: 'var(--text-primary)', marginBottom: '0.4rem', fontWeight: 600 }}>Project Features:</h4>
-                  <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.95rem' }}>
-                    {project.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {project.evaluation && (
-                <div>
-                  <h4 style={{ fontSize: '0.95rem', color: 'var(--text-primary)', marginBottom: '0.4rem', fontWeight: 600 }}>Evaluation:</h4>
-                  <ul style={{ paddingLeft: '1.2rem', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '0.25rem', fontSize: '0.95rem' }}>
-                    {project.evaluation.map((evalItem, index) => (
-                      <li key={index}>{evalItem}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Tech Stack tags */}
-      {project.techStack && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.25rem' }}>
-          {project.techStack.map((tech, index) => (
-            <span 
-              key={index} 
-              style={{
-                backgroundColor: 'rgba(128, 128, 128, 0.12)',
-                border: '1px solid var(--glass-border)',
-                padding: '0.25rem 0.6rem',
-                borderRadius: '20px',
-                fontSize: '0.8rem',
-                color: 'var(--text-secondary)',
-                fontWeight: 600
-              }}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* Action Buttons */}
-      <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
-        {project.github && (
-          <a 
-            href={project.github} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-glass" 
-            style={{ textDecoration: 'none', fontSize: '0.9rem', padding: '0.5rem 1rem' }}
-          >
-            <FaGithub /> GitHub
-          </a>
-        )}
-        {project.liveDemo && (
-          <a 
-            href={project.liveDemo} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-primary" 
-            style={{ textDecoration: 'none', fontSize: '0.9rem', padding: '0.5rem 1rem' }}
-          >
-            <FaExternalLinkAlt /> Live Demo
-          </a>
-        )}
-      </div>
-    </div>
+    <a href={link.url} target="_blank" rel="noopener noreferrer" className="btn btn-glass" style={{ fontSize: '0.85rem', padding: '0.45rem 0.9rem' }}>
+      <Icon /> {link.label}
+    </a>
   );
 };
 
-const Projects = () => {
-  const projectsData = [
-    {
-      title: "Amazon Deforestation Detection & Land-Cover Mapping",
-      category: "Computer Vision | Remote Sensing",
-      description: "Built a PyTorch-based end-to-end computer vision pipeline for satellite image classification, land-cover mapping,and deforestation detection using EuroSAT and Sentinel-2 imagery.Evaluated five CNN architectures, achieving 96.04% test accuracy with ResNet-18 while comparing model size,inference efficiency, and deployment suitability.Designed a reusable inference pipeline for patch-based prediction, land-cover reconstruction, temporal change detection, and quantitative validation using Hansen forest-loss reference data.",
-      highlights: [
-        "Satellite image preprocessing",
-        "Patch extraction",
-        "Forest vs non-forest classification",
-        "Deforestation statistics"
-      ],
-      techStack: ["Python", "PyTorch", "OpenCV", "NumPy", "Matplotlib"],
-      github: "https://github.com/Nishchalam/Deforestation-detection"
-    },
-    {
-      title: "Spam Email Classifier from Scratch",
-      category: "Natural Language Processing | Machine Learning",
-      description: "Developed an end-to-end spam email classification pipeline using publicly available datasets, including preprocessing, feature engineering, model training, and automated inference.",
-      highlights: [
-        "Text preprocessing",
-        "Feature extraction",
-        "Multiple classical ML models",
-        "Performance comparison",
-        "Automated prediction pipeline"
-      ],
-      evaluation: ["Accuracy", "Precision", "Recall", "F1-score"],
-      techStack: ["Python", "NumPy", "NLP", "Machine Learning"],
-      github: "https://github.com/Nishchalam/spam-ham-classifier"
-    },
-    {
-      title: "Foundations of Machine Learning — Algorithms from Scratch",
-      category: "Machine Learning | Python | NumPy | MATLAB",
-      description: "Implemented classical machine learning algorithms entirely from first principles without using high-level machine learning libraries.",
-      highlights: [
-        "Principal Component Analysis (PCA)",
-        "Kernel PCA",
-        "K-Means Clustering",
-        "Spectral Clustering",
-        "Expectation Maximization (Bernoulli & Gaussian Mixture Models)",
-        "Linear Regression",
-        "Ridge Regression",
-        "Gradient Descent",
-        "Stochastic Gradient Descent"
-      ],
-      features: [
-        "Mathematical derivation of algorithms",
-        "Modular implementation",
-        "Convergence analysis",
-        "Cross-validation",
-        "Experimental visualizations",
-        "Performance comparisons"
-      ],
-      techStack: ["Python", "MATLAB", "NumPy", "Matplotlib", "Linear Algebra", "Optimization"],
-      github: "https://github.com/Nishchalam/Foundations-of-ML-DA5400-"
-    },
-    {
-      title: "k* Distribution: Latent Space Analysis",
-      category: "Machine Learning | Computer Vision",
-      description: "Applied k* neighborhood-density analysis on ResNet-50 latent embeddings for 12 ImageNet classes. Evaluated robustness under input transforms and PGD attacks.",
-      techStack: ["Python", "PyTorch", "ResNet-50", "ImageNet", "Latent Space Analysis"],
-      github: "https://github.com/Nishchalam/k-distribution"
-    },
-    {
-      title: "Speech Processing Projects",
-      category: "Speech Processing | Deep Learning",
-      description: "Developed end-to-end speech processing pipelines for key audio tasks as part of the EE6130 course at IIT Madras.",
-      highlights: [
-        "Language Identification: Developed a multilingual speech-language classifier using pretrained Wav2Vec2/HuBERT representations and CNN-based classification",
-        "Speaker Diarization: Built a diarization pipeline combining Whisper-based speech segmentation, ECAPA-TDNN speaker embeddings, and agglomerative clustering",
-        "Automatic Speech Recognition (ASR): Fine-tuned Whisper-Tiny for Assamese speech recognition using Mozilla Common Voice and evaluated with Word Error Rate (WER)",
-        "Text-to-Speech (TTS): Fine-tuned SpeechT5 for German speech synthesis using speaker embeddings and a HiFi-GAN vocoder"
-      ],
-      techStack: ["Python", "PyTorch", "Hugging Face", "Transformers", "Librosa", "Wav2Vec2", "Whisper", "SpeechT5"],
-      github: "https://github.com/Nishchalam/Speech-processing-projects"
-    },
-    {
-      title: "DSP Image Processing Suite",
-      category: "Signal Processing | Image Processing",
-      description: "Built a unified 2D signal processing library covering frequency-domain transforms (2D-DFT, DCT, Haar, DWT), edge detection, and histogram equalisation.",
-      techStack: ["Python", "Signal Processing", "Image Processing", "Transforms"],
-      github: "https://github.com/Nishchalam/DSP-based-Image-processing-techniques"
-    },
-    {
-      title: "Deep learning approach to Inverse scattering problem",
-      category: "Deep Learning | Computational Physics",
-      dateRange: "Aug 2023 – Feb 2024",
-      association: "Indian Institute of Technology Design & Manufacturing, Kurnool",
-      associationLogo: iiitkLogo,
-      description: "Developed a deep learning model to solve the inverse scattering problem, precisely focusing on the reconstruction of medium to high contrast images with good resolution for medical imaging, acoustic scattering, security, and defense applications.",
-      highlights: [
-        "Designed and implemented a FPNet-based neural network model to resolve scattering problems",
-        "Enhanced spatial resolution and contrast reconstruction capabilities of scatterer mediums"
-      ],
-      techStack: ["Python", "PyTorch", "Deep Learning", "Inverse Scattering", "Image Reconstruction", "Data Analysis", "Problem Solving"]
-    },
-    {
-      title: "Design of a Ultra-Wide Microwave Band Pass Filter with Sharp Rejection",
-      category: "Electromagnetics | RF Engineering",
-      dateRange: "Feb 2024 – May 2024",
-      association: "Indian Institute of Technology Design & Manufacturing, Kurnool",
-      associationLogo: iiitkLogo,
-      description: "Designed and simulated an ultra-wide microwave band-pass filter using transmission lines and coupled lines to achieve high selectivity and sharp rejection characteristics for high-frequency communication.",
-      highlights: [
-        "Developed coupled-line band-pass filter models using transmission lines and coupled lines",
-        "Conducted extensive EM simulation and validation using Ansys Electronics Desktop (HFSS) and Saturn PCB Design tools"
-      ],
-      techStack: ["RF & Microwave Design", "Transmission Lines", "Ansys Electronics Desktop", "Saturn PCB", "Electromagnetics"]
-    },
-    {
-      title: "Parkinson's Disease prediction (ML) and app",
-      category: "Machine Learning | Healthcare",
-      dateRange: "Feb 2026 - Feb 2026",
-      association: "Indian Institute of Technology, Madras",
-      associationLogo: "https://logo.clearbit.com/iitm.ac.in",
-      description: "Having known about this disease my whole life, this project utilises SVM and Decision trees to predict and has an accuracy of 84% on test data. Along with source code, I have developed a simple application with a HTML based frontend.",
-      techStack: ["Machine Learning", "Python", "SVM", "Decision Trees", "HTML"],
-      github: "https://github.com/Nishchalam/parkinson_disease_project"
-    }
-  ];
+const ProjectCard = ({ project }) => (
+  <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left', padding: '1.5rem' }}>
+    <div>
+      <span style={{ fontSize: '0.74rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 700 }}>
+        {project.category}
+      </span>
+      <h3 style={{ fontSize: '1.15rem', margin: '0.3rem 0 0.25rem 0' }}>{project.title}</h3>
+      <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>{project.meta}</span>
+    </div>
 
+    <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: '1.55' }}>{project.description}</p>
+
+    <ul style={{ listStyleType: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      {project.highlights.map((h) => (
+        <li key={h} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.88rem', lineHeight: '1.5' }}>
+          <span style={{ width: '6px', height: '6px', minWidth: '6px', borderRadius: '50%', background: 'var(--accent)', marginTop: '0.5em' }} />
+          <span>{h}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+      {project.techStack.map((tech) => (
+        <span key={tech} style={{ backgroundColor: 'rgba(128, 128, 128, 0.1)', border: '1px solid var(--glass-border)', padding: '0.2rem 0.55rem', borderRadius: '20px', fontSize: '0.74rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+          {tech}
+        </span>
+      ))}
+    </div>
+
+    {project.links?.length > 0 && (
+      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginTop: 'auto' }}>
+        {project.links.map((link) => <LinkButton key={link.url} link={link} />)}
+      </div>
+    )}
+  </div>
+);
+
+const PROJECTS = [
+  {
+    title: 'Amazon Deforestation Detection & Land-Cover Mapping',
+    category: 'Computer Vision · Remote Sensing',
+    meta: 'Personal Project',
+    description: 'End-to-end PyTorch pipeline for satellite image classification and deforestation detection using EuroSAT and Sentinel-2 imagery, with results validated against an independent reference dataset rather than classification accuracy alone.',
+    highlights: [
+      '96.04% test accuracy with ResNet-18 — best accuracy/size/inference-speed trade-off across 5 CNN architectures compared',
+      'Patch-based inference pipeline for land-cover reconstruction and temporal change detection',
+      'Deforestation statistics validated against Hansen forest-loss reference data',
+    ],
+    techStack: ['Python', 'PyTorch', 'OpenCV', 'NumPy', 'Matplotlib'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/Deforestation-detection' }],
+  },
+  {
+    title: 'Speech Processing Suite — LID, Diarization, ASR, TTS',
+    category: 'Speech Processing · Deep Learning',
+    meta: 'MS-EE6130-Advanced Topics in Signal Processing',
+    description: 'Four end-to-end speech-processing systems, each fine-tuning a pretrained model at a different point in the speech stack rather than training from scratch.',
+    highlights: [
+      'Language ID — CNN classifier on Wav2Vec2/HuBERT embeddings',
+      'Speaker Diarization — Whisper segmentation → ECAPA-TDNN speaker embeddings → agglomerative clustering',
+      'ASR — fine-tuned Whisper-Tiny for Assamese on Mozilla Common Voice, evaluated with Word Error Rate',
+      'TTS — fine-tuned SpeechT5 for German synthesis using speaker embeddings and a HiFi-GAN vocoder',
+    ],
+    techStack: ['Python', 'PyTorch', 'Hugging Face Transformers', 'Librosa', 'Wav2Vec2', 'HuBERT', 'Whisper', 'SpeechT5', 'ECAPA-TDNN'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/Speech-processing-projects' }],
+  },
+  {
+    title: 'k* Distribution: Latent Space Analysis',
+    category: 'Machine Learning · Adversarial Robustness',
+    meta: 'MS-EE5111-Estimation Theory',
+    description: 'Applied k*-neighborhood-density analysis to ResNet-50 latent embeddings for 12 ImageNet classes, studying how representation structure shifts under input transforms and PGD adversarial attacks.',
+    highlights: [
+      'Quantified neighborhood-density shifts in latent space under adversarial perturbation',
+      'Evaluated representation robustness across 12 ImageNet classes using ResNet-50 embeddings',
+    ],
+    techStack: ['Python', 'PyTorch', 'ResNet-50', 'ImageNet', 'Adversarial Robustness'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/k-distribution' }],
+  },
+  {
+    title: 'Foundations of Machine Learning — Algorithms from Scratch',
+    category: 'Machine Learning · Mathematical Foundations',
+    meta: 'MS-DA5400-Foundations of Machine Learning',
+    description: 'Classical ML algorithms implemented from mathematical first principles with no scikit-learn, including an applied spam-email classification pipeline built on the same foundations.',
+    highlights: [
+      'PCA, Kernel PCA, K-Means, Spectral Clustering, EM (Bernoulli & Gaussian Mixture Models), Linear/Ridge Regression, Gradient Descent, SGD',
+      'Spam email classifier: text preprocessing, feature extraction, and comparison of multiple classical models by accuracy, precision, recall, F1',
+    ],
+    techStack: ['Python', 'MATLAB', 'NumPy', 'Matplotlib', 'NLP', 'Linear Algebra', 'Optimization'],
+    links: [
+      { label: 'Code — ML from Scratch', url: 'https://github.com/Nishchalam/Foundations-of-ML-DA5400-' },
+      { label: 'Code — Spam Classifier', url: 'https://github.com/Nishchalam/spam-ham-classifier' },
+    ],
+  },
+  {
+    title: 'DSP Image Processing Suite',
+    category: 'Signal Processing · Image Processing',
+    meta: 'B.Tech-EC528-Digital Image Processing',
+    description: 'Unified 2D signal processing library covering frequency-domain transforms, edge detection, and histogram equalisation, built from underlying transform theory rather than library calls.',
+    highlights: [
+      '2D-DFT, DCT, Haar, and DWT transform implementations',
+      'Edge detection and histogram equalisation modules',
+    ],
+    techStack: ['Python', 'Signal Processing', '2D-DFT / DCT / DWT'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/DSP-based-Image-processing-techniques' }],
+  },
+  {
+    title: 'Deep Learning Approach to Inverse Scattering Problem',
+    category: 'Deep Learning · Computational Physics',
+    meta: 'B.Tech Project — IIITDM Kurnool, Aug 2023 – Feb 2024',
+    description: 'FPNet-based neural network for reconstructing medium-to-high contrast scatterer images at improved spatial resolution, relevant to medical imaging and acoustic scattering applications.',
+    highlights: [
+      'Designed an FPNet-based model to resolve the inverse scattering problem',
+      'Improved spatial resolution and contrast-reconstruction quality for scatterer mediums',
+    ],
+    techStack: ['Python', 'PyTorch', 'Inverse Scattering', 'Image Reconstruction'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/Deep-learning-approach-to-Inverse-scattering-problem' }],
+  },
+  {
+    title: 'Ultra-Wideband Microwave Bandpass Filter with Sharp Rejection',
+    category: 'Electromagnetics · RF Engineering',
+    meta: 'B.Tech Project — IIITDM Kurnool, Feb 2024 – May 2024',
+    description: 'Coupled-line band-pass filter using transmission lines to achieve high selectivity and sharp rejection at high frequency, validated through EM simulation.',
+    highlights: [
+      'Developed coupled-line band-pass filter models using transmission lines',
+      'Validated design via EM simulation in Ansys Electronics Desktop (HFSS) and Saturn PCB Design',
+    ],
+    techStack: ['Ansys HFSS', 'Transmission Lines', 'RF Design', 'Saturn PCB'],
+    links: [{ label: 'Project Files', url: 'https://drive.google.com/drive/folders/1yu9mFF_FqLHudObFQKsgv3hmItw037o8?usp=drive_link', type: 'drive' }],
+  },
+  {
+    title: "Parkinson's Disease Prediction",
+    category: 'Machine Learning · Healthcare',
+    meta: 'Personal Project',
+    description: "SVM and Decision Tree classifiers for Parkinson's disease prediction, packaged with a simple HTML-based front end for interactive use.",
+    highlights: [
+      '84% test accuracy comparing SVM and Decision Tree classifiers',
+    ],
+    techStack: ['Python', 'SVM', 'Decision Trees', 'HTML'],
+    links: [{ label: 'Code', url: 'https://github.com/Nishchalam/parkinson_disease_project' }],
+  },
+];
+
+const Projects = () => {
   return (
     <section id="projects" className="section">
-      <h2 className="section-title neon-border">Projects</h2>
-      <div className="projects-grid" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        {projectsData.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
+      <h2 className="section-title">Projects</h2>
+      <div className="projects-grid">
+        {PROJECTS.map((p) => <ProjectCard key={p.title} project={p} />)}
       </div>
     </section>
   );

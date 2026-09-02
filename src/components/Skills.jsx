@@ -1,73 +1,62 @@
-import { FaPython, FaLinux, FaGitAlt } from 'react-icons/fa';
-import { SiPytorch, SiTensorflow, SiKeras, SiScipy, SiNumpy, SiPandas, SiScikitlearn, SiJupyter, SiCplusplus, SiC } from 'react-icons/si';
+import { FaPython, FaLinux, FaGitAlt, FaWaveSquare } from 'react-icons/fa';
+import { SiPytorch, SiTensorflow, SiKeras, SiScipy, SiNumpy, SiPandas, SiScikitlearn, SiJupyter, SiCplusplus, SiC, SiOpencv, SiHuggingface } from 'react-icons/si';
+import { TbMathFunction } from 'react-icons/tb';
 
-const SkillItem = ({ name, icon: Icon, accentColor }) => (
-  <div 
-    title={name} 
-    className="glass-panel" 
-    style={{ 
-      padding: '1rem 1.2rem', 
-      display: 'flex', 
-      flexDirection: 'column', 
-      alignItems: 'center', 
-      justifyContent: 'center', 
-      gap: '0.6rem',
-      color: 'var(--text-primary)',
-      cursor: 'pointer',
-      minWidth: '90px',
-      transition: 'transform 0.2s ease, border-color 0.2s ease, color 0.2s ease'
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.borderColor = accentColor || 'var(--accent-cyan)';
-      e.currentTarget.style.color = accentColor || 'var(--accent-cyan)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.borderColor = 'var(--glass-border)';
-      e.currentTarget.style.color = 'var(--text-primary)';
-    }}
-  >
-    <Icon style={{ fontSize: '2.5rem', color: 'inherit' }} />
-    <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'inherit' }}>{name}</span>
+const SkillItem = ({ name, icon: Icon }) => (
+  <div title={name} className="glass-panel skill-item">
+    <Icon style={{ fontSize: '1.7rem' }} />
+    <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>{name}</span>
+  </div>
+);
+
+const SkillGroup = ({ title, evidence, children }) => (
+  <div style={{ marginBottom: '2rem' }}>
+    <h3 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>{title}</h3>
+    <p style={{ fontSize: '0.85rem', marginBottom: '1rem' }}>{evidence}</p>
+    <div style={{ display: 'flex', gap: '0.9rem', flexWrap: 'wrap' }}>
+      {children}
+    </div>
   </div>
 );
 
 const Skills = () => {
   return (
     <section id="skills" className="section">
-      <h2 className="section-title neon-border">Skills</h2>
-      
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '1rem', color: 'var(--accent-cyan)' }}>Languages & Core</h3>
-        <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
-          <SkillItem name="Python" icon={FaPython} accentColor="var(--accent-cyan)" />
-          <SkillItem name="C++" icon={SiCplusplus} accentColor="var(--accent-cyan)" />
-          <SkillItem name="C" icon={SiC} accentColor="var(--accent-cyan)" />
-        </div>
-      </div>
-      
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '1rem', color: 'var(--accent-purple)' }}>Deep Learning & ML</h3>
-        <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
-          <SkillItem name="PyTorch" icon={SiPytorch} accentColor="var(--accent-purple)" />
-          <SkillItem name="TensorFlow" icon={SiTensorflow} accentColor="var(--accent-purple)" />
-          <SkillItem name="Keras" icon={SiKeras} accentColor="var(--accent-purple)" />
-          <SkillItem name="Scikit-learn" icon={SiScikitlearn} accentColor="var(--accent-purple)" />
-        </div>
-      </div>
+      <h2 className="section-title">Skills</h2>
+      <p className="section-intro">Grouped by demonstrated use, not a generic list — each category is backed by a project or research line above.</p>
 
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ marginBottom: '1rem', color: 'var(--accent-blue)' }}>Data & Tools</h3>
-        <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
-          <SkillItem name="NumPy" icon={SiNumpy} accentColor="var(--accent-blue)" />
-          <SkillItem name="SciPy" icon={SiScipy} accentColor="var(--accent-blue)" />
-          <SkillItem name="Pandas" icon={SiPandas} accentColor="var(--accent-blue)" />
-          <SkillItem name="Linux" icon={FaLinux} accentColor="var(--accent-blue)" />
-          <SkillItem name="Git" icon={FaGitAlt} accentColor="var(--accent-blue)" />
-          <SkillItem name="Jupyter" icon={SiJupyter} accentColor="var(--accent-blue)" />
-        </div>
-      </div>
+      <SkillGroup title="Speech & Signal Processing" evidence="Speech Processing Suite · DSP Image Processing Suite · current F0-estimation research">
+        <SkillItem name="Librosa" icon={FaWaveSquare} />
+        <SkillItem name="Hugging Face Transformers" icon={SiHuggingface} />
+        <SkillItem name="Signal Transforms" icon={TbMathFunction} />
+      </SkillGroup>
+
+      <SkillGroup title="Programming" evidence="Used across every project below">
+        <SkillItem name="Python" icon={FaPython} />
+        <SkillItem name="MATLAB" icon={TbMathFunction} />
+        <SkillItem name="C++" icon={SiCplusplus} />
+        <SkillItem name="C" icon={SiC} />
+      </SkillGroup>
+
+      <SkillGroup title="Deep Learning / ML" evidence="Deforestation Detection · k* Distribution · Speech Processing Suite · Foundations of ML">
+        <SkillItem name="PyTorch" icon={SiPytorch} />
+        <SkillItem name="TensorFlow" icon={SiTensorflow} />
+        <SkillItem name="Keras" icon={SiKeras} />
+        <SkillItem name="Scikit-learn" icon={SiScikitlearn} />
+      </SkillGroup>
+
+      <SkillGroup title="Computer Vision" evidence="Amazon Deforestation Detection · k* Distribution latent space analysis">
+        <SkillItem name="OpenCV" icon={SiOpencv} />
+      </SkillGroup>
+
+      <SkillGroup title="Data & Engineering Tools" evidence="Used across every project below">
+        <SkillItem name="NumPy" icon={SiNumpy} />
+        <SkillItem name="SciPy" icon={SiScipy} />
+        <SkillItem name="Pandas" icon={SiPandas} />
+        <SkillItem name="Linux" icon={FaLinux} />
+        <SkillItem name="Git" icon={FaGitAlt} />
+        <SkillItem name="Jupyter" icon={SiJupyter} />
+      </SkillGroup>
     </section>
   );
 };
